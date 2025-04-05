@@ -151,4 +151,44 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(arrayOfNumbers) {
+  let greatestNumber = 0;
+
+  for (let i = 0; i < arrayOfNumbers.length; i++) {
+    for (let j = 0; j < arrayOfNumbers[i].length; j++) {
+      const currentVerticalPosition = i;
+      const currentHorizontalPosition = j;
+
+      //Calculate the horizontal opetation
+      if (currentHorizontalPosition < arrayOfNumbers[i].length - 3) {
+        const firstHorizontalNumber = arrayOfNumbers[i][j];
+        const secondHorizontalNumber = arrayOfNumbers[i][j+1];
+        const thirdHorizontalNumber = arrayOfNumbers[i][j+2];
+        const fourthHorizontalNumber = arrayOfNumbers[i][j+3];
+        let prod = firstHorizontalNumber * secondHorizontalNumber * thirdHorizontalNumber * fourthHorizontalNumber;
+        if (prod > greatestNumber) {
+          greatestNumber = prod;
+        }
+      }
+
+      //Calculate the vertical operation
+      if (currentVerticalPosition < arrayOfNumbers.length - 3) {
+        const firstVerticalNumber = arrayOfNumbers[i][j];
+        const secondVerticalNumber = arrayOfNumbers[i][j+1];
+        const thirdVerticalNumber = arrayOfNumbers[i][j+2];
+        const fourthVerticalNumber = arrayOfNumbers[i][j+3];
+        let prod = firstVerticalNumber * secondVerticalNumber * thirdVerticalNumber * fourthVerticalNumber;
+        if (prod > greatestNumber) {
+          greatestNumber = prod;
+        }
+      }
+    }
+  }
+  
+  return greatestNumber;
+}
+
+
+
+
+
