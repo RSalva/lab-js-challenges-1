@@ -64,8 +64,25 @@ function multiplyBy(arrayOfNumbers, multiplierNumber) {
 const original = ["cat", "dog", "fish", "bird", "cat", "fish"];
 const toRemove = ["cat", "dog"];
 
-function filterOut() {
-  
+function filterOut(originalArray, arrayOfFilters) {
+  let filteredArray = [];
+  if (originalArray.length === 0) {
+    return null;
+  }
+  for (let i = 0; i < originalArray.length; i++) {
+    const currentWord = originalArray[i];
+    let found = false;
+    for (let x = 0; x < arrayOfFilters.length; x++) {
+      const currentRemoveWord = arrayOfFilters[x];
+      if (currentWord === currentRemoveWord) {
+        found = true;
+      }
+    }
+    if (!found) {
+      filteredArray.push(currentWord);
+    }
+  }
+  return filteredArray;
 }
 
 
