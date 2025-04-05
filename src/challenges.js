@@ -47,7 +47,15 @@ createSequence(3);
 // Iteration 3 | Multiply for Each
 const numbers = [1, 2, 5, 10, 13, 50];
 
-function multiplyBy() {}
+function multiplyBy(arrayOfNumbers, multiplierNumber) {
+  let multipliedArray = [];
+  let currentPos = 0;
+  arrayOfNumbers.forEach(function(currentNumber) {
+    multipliedArray[currentPos] = currentNumber * multiplierNumber;
+    currentPos++;
+  });
+  return multipliedArray;
+}
 
 
 
@@ -56,7 +64,9 @@ function multiplyBy() {}
 const original = ["cat", "dog", "fish", "bird", "cat", "fish"];
 const toRemove = ["cat", "dog"];
 
-function filterOut() {}
+function filterOut() {
+  
+}
 
 
 
